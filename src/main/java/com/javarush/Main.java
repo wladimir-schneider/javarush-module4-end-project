@@ -79,7 +79,7 @@ public class Main {
         Properties properties = new Properties();
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
-        properties.put(Environment.URL, "jdbc:p6spy:mysql://192.168.178.48:3306/world");
+        properties.put(Environment.URL, "jdbc:p6spy:mysql://localhost:3306/world");
         properties.put(Environment.USER, "root");
         properties.put(Environment.PASS, "root");
         properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
@@ -95,7 +95,7 @@ public class Main {
     }
 
     private RedisClient prepareRedisClient() {
-        RedisClient client = RedisClient.create(RedisURI.create("192.168.178.48", 6379));
+        RedisClient client = RedisClient.create(RedisURI.create("localhost", 6379));
         try (StatefulRedisConnection<String, String> connection = client.connect()) {
             System.out.println("\nConnected to Redis\n");
         }
